@@ -43,3 +43,10 @@ This project is an example of how to use the OpenBridge WebComponents React pack
 ## About
 
 See the [OpenBridge WebComponents React](https://www.npmjs.com/package/@oicl/openbridge-webcomponents-react) package for more information.
+
+## OpenBridge References
+
+- **OpenBridge Official Website**: https://www.openbridge.no/
+- **NPM Package**: https://www.npmjs.com/package/@oicl/openbridge-webcomponents-react
+- **Storybook Documentation**: https://openbridge-storybook.web.app/?path=/docs/automation-button--docs
+- **Live Demo**: https://openbridge-demo.web.app/
