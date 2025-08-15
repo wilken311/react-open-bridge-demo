@@ -7,10 +7,103 @@ import { ObcBreadcrumb } from "@oicl/openbridge-webcomponents-react/components/b
 import { ObcInput } from "@oicl/openbridge-webcomponents-react/components/input/input";
 import { ObcSelect } from "@oicl/openbridge-webcomponents-react/components/select/select";
 import { ObiPlaceholder } from "@oicl/openbridge-webcomponents-react/icons/icon-placeholder";
+import "@oicl/openbridge-webcomponents/dist/navigation-instruments/compass/compass.js";
+import "@oicl/openbridge-webcomponents/dist/navigation-instruments/compass-flat/compass-flat.js";
+
+// Extend JSX IntrinsicElements for raw web components
+declare global {
+    namespace JSX {
+        interface IntrinsicElements {
+            'obc-compass': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+                heading?: number;
+                'course-over-ground'?: number;
+                'heading-advices'?: string;
+            };
+            'obc-compass-flat': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+                heading?: number;
+                'course-over-ground'?: number;
+                fov?: number;
+                'tick-interval'?: number;
+            };
+        }
+    }
+}
 
 const SampleUI: React.FC = () => {
     return (
+    
     <div>
+      <div style={{ marginBottom: '2rem' }}>
+        <h1>Compass Component Samples!</h1>
+        
+        <div style={{ marginBottom: '2rem' }}>
+          <h2>3D Compass:</h2>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
+            <obc-compass 
+              heading={45} 
+              course-over-ground={30}
+              style={{ width: '300px', height: '300px' }}
+            />
+          </div>
+          <p style={{ textAlign: 'center', color: '#666', fontSize: '14px' }}>
+            Heading: 45°, Course Over Ground: 30°
+          </p>
+        </div>
+
+        <div style={{ marginBottom: '2rem' }}>
+          <h2>Flat Compass:</h2>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
+            <obc-compass-flat 
+              heading={120} 
+              course-over-ground={90}
+              fov={60}
+              tick-interval={10}
+              style={{ width: '500px', height: '170px' }}
+            />
+          </div>
+          <p style={{ textAlign: 'center', color: '#666', fontSize: '14px' }}>
+            Heading: 120°, Course Over Ground: 90°, Field of View: 60°
+          </p>
+        </div>
+
+        <div style={{ marginBottom: '2rem' }}>
+          <h2>Multiple Compass Examples:</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem', marginBottom: '1rem' }}>
+            <div style={{ textAlign: 'center' }}>
+              <h3>North Heading</h3>
+              <obc-compass 
+                heading={0} 
+                course-over-ground={0}
+                style={{ width: '200px', height: '200px' }}
+              />
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <h3>East Heading</h3>
+              <obc-compass 
+                heading={90} 
+                course-over-ground={85}
+                style={{ width: '200px', height: '200px' }}
+              />
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <h3>South Heading</h3>
+              <obc-compass 
+                heading={180} 
+                course-over-ground={175}
+                style={{ width: '200px', height: '200px' }}
+              />
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <h3>West Heading</h3>
+              <obc-compass 
+                heading={270} 
+                course-over-ground={265}
+                style={{ width: '200px', height: '200px' }}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
       <ObcTopBar>
         <ObcBadge>OpenBridge System</ObcBadge>
         <ObcClock />
@@ -143,10 +236,10 @@ const SampleUI: React.FC = () => {
         <div style={{ marginTop: '1rem', display: 'flex', gap: '1rem', flexDirection: 'column' }}>
           <h2>OpenBridge Button Examples:</h2>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-            <ObcButton variant="normal">Normal Button</ObcButton>
-            <ObcButton variant="raised">Raised Button</ObcButton>
-            <ObcButton variant="flat">Flat Button</ObcButton>
-            <ObcButton variant="check">Check Button</ObcButton>
+            <ObcButton>Normal Button</ObcButton>
+            <ObcButton>Raised Button</ObcButton>
+            <ObcButton>Flat Button</ObcButton>
+            <ObcButton>Check Button</ObcButton>
           </div>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <ObcButton disabled>Disabled Button</ObcButton>

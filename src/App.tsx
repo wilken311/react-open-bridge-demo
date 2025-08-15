@@ -4,6 +4,11 @@ import { ObcTopBar } from "@oicl/openbridge-webcomponents-react/components/top-b
 import { ObcBrillianceMenu } from "@oicl/openbridge-webcomponents-react/components/brilliance-menu/brilliance-menu";
 import "./App.css";
 import SampleUI from "./components/UI/SampleUI";
+import Compass from "./components/Compass/Compass";
+import Rudder from "./components/Rudder/Rudder";
+import Watch from "./components/Watch/Watch";
+import Thruster from "./components/Thruster/Thruster";
+import AzimuthThruster from "./components/AzimuthThruster/AzimuthThruster";
 
 const handleBrillianceChange = (e: CustomEvent) => {
   document.documentElement.setAttribute("data-obc-theme", e.detail.value);
@@ -36,9 +41,12 @@ function App() {
           />
         )}
 
-        {/* <PoiTargetsWrapper rows={5} columns={5} /> */}
-        <SampleUI />
-        
+        {/* <SampleUI /> */}
+        <Compass heading={150} />
+        <Rudder />
+        <Watch />
+        <Thruster />
+        {/* <AzimuthThruster /> */}
       </main>
     </>
   );
